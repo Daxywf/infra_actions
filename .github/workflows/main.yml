@@ -5,7 +5,6 @@ on: [push]
 
 jobs:
   tests:
-    # «Раннер» — создание изолированного окружения с последней версией Ubuntu 
     runs-on: ubuntu-latest
 
     steps:
@@ -71,7 +70,7 @@ jobs:
         host: ${{ secrets.HOST }}
         username: ${{ secrets.USER }}
         key: ${{ secrets.SSH_KEY }}
-        # passphrase: ${{ secrets.PASSPHRASE }} 
+        passphrase: ${{ secrets.PASSPHRASE }} 
         script: |
           sudo docker pull daxywf/infra_project
           sudo docker stop $(sudo docker ps -a -q)
